@@ -1,5 +1,4 @@
 import { Section } from "./Section";
-import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
@@ -50,20 +49,6 @@ export function Projects() {
                   {t}
                 </span>
               ))}
-            </div>
-            <div className="flex gap-3 relative">
-              <a
-                href="#"
-                className="inline-flex items-center gap-1.5 text-sm gradient-text font-semibold hover:opacity-80"
-              >
-                View Project <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
-              >
-                <Github className="w-3.5 h-3.5" /> GitHub
-              </a>
             </div>
           </article>
         ))}
