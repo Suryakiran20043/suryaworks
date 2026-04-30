@@ -12,16 +12,34 @@ const schema = z.object({
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
       setStatus(result.error.issues[0].message);
       return;
     }
-    setStatus("Thanks! I'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+    setStatus(null);
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to send");
+      }
+      setStatus("Thanks! Your message has been sent.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      setStatus(err instanceof Error ? err.message : "Failed to send");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -91,9 +109,10 @@ export function Contact() {
           {status && <p className="text-sm text-primary">{status}</p>}
           <button
             type="submit"
-            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground px-6 py-3 rounded-full font-semibold hover:opacity-90 transition glow-shadow"
+            disabled={loading}
+            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground px-6 py-3 rounded-full font-semibold hover:opacity-90 transition glow-shadow disabled:opacity-60"
           >
-            Send Message <Send className="w-4 h-4" />
+            {loading ? "Sending..." : "Send Message"} <Send className="w-4 h-4" />
           </button>
         </form>
       </div>
