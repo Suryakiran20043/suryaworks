@@ -1,0 +1,100 @@
+import { useState } from "react";
+import { Section } from "./Section";
+import { Mail, Phone, Github, Linkedin, Instagram, Send } from "lucide-react";
+import { z } from "zod";
+
+const schema = z.object({
+  name: z.string().trim().min(1, "Name required").max(100),
+  email: z.string().trim().email("Invalid email").max(255),
+  message: z.string().trim().min(1, "Message required").max(1000),
+});
+
+export function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<string | null>(null);
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = schema.safeParse(form);
+    if (!result.success) {
+      setStatus(result.error.issues[0].message);
+      return;
+    }
+    setStatus("Thanks! I'll get back to you soon.");
+    setForm({ name: "", email: "", message: "" });
+  };
+
+  return (
+    <Section id="contact" eyebrow="Contact" title={<>Let's <span className="gradient-text">connect</span></>} subtitle="Open to opportunities, collaborations, and a good conversation.">
+      <div className="grid lg:grid-cols-5 gap-6">
+        <div className="lg:col-span-2 glass rounded-3xl p-8 card-shadow flex flex-col gap-5">
+          <a href="mailto:suryakiran@example.com" className="flex items-center gap-4 group">
+            <div className="w-11 h-11 rounded-xl gradient-bg flex items-center justify-center"><Mail className="w-5 h-5 text-primary-foreground" /></div>
+            <div>
+              <div className="text-xs text-muted-foreground">Email</div>
+              <div className="text-sm group-hover:text-primary transition">suryakiran@example.com</div>
+            </div>
+          </a>
+          <a href="tel:+910000000000" className="flex items-center gap-4 group">
+            <div className="w-11 h-11 rounded-xl gradient-bg flex items-center justify-center"><Phone className="w-5 h-5 text-primary-foreground" /></div>
+            <div>
+              <div className="text-xs text-muted-foreground">Phone</div>
+              <div className="text-sm group-hover:text-primary transition">+91 00000 00000</div>
+            </div>
+          </a>
+          <div className="border-t border-border pt-5">
+            <div className="text-xs text-muted-foreground mb-3">Find me on</div>
+            <div className="flex gap-3">
+              {[
+                { Icon: Github, href: "#" },
+                { Icon: Linkedin, href: "#" },
+                { Icon: Instagram, href: "#" },
+              ].map(({ Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  className="w-10 h-10 rounded-full glass flex items-center justify-center hover:gradient-bg hover:text-primary-foreground transition-all hover:-translate-y-0.5"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <form onSubmit={submit} className="lg:col-span-3 glass rounded-3xl p-8 card-shadow space-y-4">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <input
+              type="text"
+              placeholder="Your name"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="w-full bg-secondary/40 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
+            />
+            <input
+              type="email"
+              placeholder="Your email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full bg-secondary/40 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
+            />
+          </div>
+          <textarea
+            placeholder="Your message"
+            rows={6}
+            value={form.message}
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            className="w-full bg-secondary/40 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition resize-none"
+          />
+          {status && <p className="text-sm text-primary">{status}</p>}
+          <button
+            type="submit"
+            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground px-6 py-3 rounded-full font-semibold hover:opacity-90 transition glow-shadow"
+          >
+            Send Message <Send className="w-4 h-4" />
+          </button>
+        </form>
+      </div>
+    </Section>
+  );
+}
