@@ -48,7 +48,7 @@ export function Contact() {
               {[
                 { Icon: Github, href: "https://github.com/Suryakiran20043" },
                 { Icon: Linkedin, href: "https://www.linkedin.com/in/suryakirangajawada" },
-                { Icon: Instagram, href: "#" },
+                { Icon: Instagram, href: "https://www.instagram.com/surya_kiran_gajawada" },
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
