@@ -109,9 +109,10 @@ export function Contact() {
           {status && <p className="text-sm text-primary">{status}</p>}
           <button
             type="submit"
-            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground px-6 py-3 rounded-full font-semibold hover:opacity-90 transition glow-shadow"
+            disabled={loading}
+            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground px-6 py-3 rounded-full font-semibold hover:opacity-90 transition glow-shadow disabled:opacity-60"
           >
-            Send Message <Send className="w-4 h-4" />
+            {loading ? "Sending..." : "Send Message"} <Send className="w-4 h-4" />
           </button>
         </form>
       </div>
