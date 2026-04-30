@@ -12,7 +12,7 @@ export function Experience() {
           <div>
             <div className="flex items-center gap-3 flex-wrap mb-2">
               <h3 className="text-xl font-semibold">Personal & Academic Projects</h3>
-              <span className="text-xs text-primary glass rounded-full px-3 py-1">2024 – Present</span>
+              <span className="text-xs text-primary glass rounded-full px-3 py-1">2026 – Present</span>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Building practical applications and refining my craft through hands-on work
