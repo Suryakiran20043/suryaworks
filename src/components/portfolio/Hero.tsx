@@ -47,7 +47,7 @@ export function Hero() {
               </span>
               Open to work
             </span>
-            <span className="text-muted-foreground">Full-Stack Web Developer</span>
+            <span className="text-muted-foreground">Web Developer</span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.02] mb-6 tracking-tight">
@@ -56,18 +56,14 @@ export function Hero() {
             <span className="inline-block ml-2 animate-float">
               <Sparkles className="inline w-8 h-8 md:w-10 md:h-10 text-primary" />
             </span>
-            <br />
-            <span className="text-foreground/90">and I craft</span>{" "}
-            <span className="relative whitespace-nowrap">
-              <span className="relative z-10">full-stack web experiences</span>
-              <span className="absolute inset-x-0 bottom-1 h-3 bg-primary/25 -z-0 rounded-sm" />
-            </span>
           </h1>
 
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-            I love turning ideas into{" "}
-            <span className="text-foreground font-medium">fast, accessible, and beautifully designed</span>{" "}
-            web apps — from polished interfaces on the front end to reliable APIs and data on the back. Always learning, always shipping.
+            I enjoy turning ideas into{" "}
+            <span className="text-foreground font-medium">clean and responsive web experiences</span>{" "}
+            that people love to use. Most of my time goes into experimenting with modern tools, polishing small details, and learning something new every day. I'm especially excited about building{" "}
+            <span className="text-foreground font-medium">intuitive UIs</span>{" "}
+            that feel simple, fast, and a little bit fun.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-10">
