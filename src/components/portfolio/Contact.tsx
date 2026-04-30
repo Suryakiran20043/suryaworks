@@ -28,11 +28,11 @@ export function Contact() {
     <Section id="contact" eyebrow="Contact" title={<>Let's <span className="gradient-text">connect</span></>} subtitle="Open to opportunities, collaborations, and a good conversation.">
       <div className="grid lg:grid-cols-5 gap-6">
         <div className="lg:col-span-2 glass rounded-3xl p-8 card-shadow flex flex-col gap-5">
-          <a href="mailto:suryakiran@example.com" className="flex items-center gap-4 group">
+          <a href="mailto:gajawadasuryakiran2004@gmail.com" className="flex items-center gap-4 group">
             <div className="w-11 h-11 rounded-xl gradient-bg flex items-center justify-center"><Mail className="w-5 h-5 text-primary-foreground" /></div>
             <div>
               <div className="text-xs text-muted-foreground">Email</div>
-              <div className="text-sm group-hover:text-primary transition">suryakiran@example.com</div>
+              <div className="text-sm group-hover:text-primary transition break-all">gajawadasuryakiran2004@gmail.com</div>
             </div>
           </a>
           <a href="tel:+910000000000" className="flex items-center gap-4 group">
@@ -46,13 +46,15 @@ export function Contact() {
             <div className="text-xs text-muted-foreground mb-3">Find me on</div>
             <div className="flex gap-3">
               {[
-                { Icon: Github, href: "#" },
-                { Icon: Linkedin, href: "#" },
+                { Icon: Github, href: "https://github.com/Suryakiran20043" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/suryakirangajawada" },
                 { Icon: Instagram, href: "#" },
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full glass flex items-center justify-center hover:gradient-bg hover:text-primary-foreground transition-all hover:-translate-y-0.5"
                 >
                   <Icon className="w-4 h-4" />

@@ -91,13 +91,15 @@ export function Hero() {
           {/* Social row */}
           <div className="flex items-center gap-3 mb-10">
             {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Mail, href: "#contact", label: "Email" },
-            ].map(({ icon: Icon, href, label }) => (
+              { icon: Github, href: "https://github.com/Suryakiran20043", label: "GitHub", external: true },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/suryakirangajawada", label: "LinkedIn", external: true },
+              { icon: Mail, href: "mailto:gajawadasuryakiran2004@gmail.com", label: "Email", external: false },
+            ].map(({ icon: Icon, href, label, external }) => (
               <a
                 key={label}
                 href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
                 aria-label={label}
                 className="glass w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition"
               >
