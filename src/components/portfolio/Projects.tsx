@@ -3,6 +3,11 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
+    title: "E-commerce Website",
+    desc: "Full-stack store with authentication, cart, product management, and order tracking.",
+    tech: ["PHP", "MySQL", "JavaScript"],
+  },
+  {
     title: "Restaurant Management System",
     desc: "Manages orders, billing, and inventory to improve operational efficiency for restaurants.",
     tech: ["Java", "MySQL", "Swing"],
@@ -16,11 +21,6 @@ const projects = [
     title: "Telemedicine Platform — SIH",
     desc: "Improves healthcare access for rural communities through remote consultations and records.",
     tech: ["React", "Node.js", "WebRTC"],
-  },
-  {
-    title: "E-commerce Website",
-    desc: "Full-stack store with authentication, cart, product management, and order tracking.",
-    tech: ["PHP", "MySQL", "JavaScript"],
   },
 ];
 
