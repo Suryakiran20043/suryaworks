@@ -24,7 +24,7 @@ export function Contact() {
     setLoading(true);
     setStatus(null);
     try {
-      const res = await fetch("/api/public/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(result.data),

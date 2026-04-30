@@ -40,7 +40,7 @@ function buildRawEmail(opts: {
     .replace(/=+$/, "");
 }
 
-export const Route = createFileRoute("/api/public/contact")({
+export const Route = createFileRoute("/api/contact")({
   server: {
     handlers: {
       POST: async ({ request }) => {
