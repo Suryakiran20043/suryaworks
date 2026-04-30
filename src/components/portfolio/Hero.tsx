@@ -24,14 +24,16 @@ export function Hero() {
         />
         {/* subtle grid */}
         <div
-          className="absolute inset-0 opacity-[0.06]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
               "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
+            backgroundSize: "64px 64px",
             color: "oklch(0.7 0.18 250)",
             maskImage:
-              "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+              "radial-gradient(ellipse at center, black 20%, transparent 60%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 20%, transparent 60%)",
           }}
         />
       </div>
