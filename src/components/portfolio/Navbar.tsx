@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Sparkles, Zap } from "lucide-react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -13,6 +15,7 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { reduced, toggle } = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -42,12 +45,23 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="hidden md:inline-flex gradient-bg text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition"
-        >
-          Hire Me
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggle}
+            aria-pressed={reduced}
+            aria-label={reduced ? "Enable animations" : "Reduce animations"}
+            title={reduced ? "Enable animations" : "Reduce animations"}
+            className="glass w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition"
+          >
+            {reduced ? <Zap className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
+          </button>
+          <a
+            href="#contact"
+            className="gradient-bg text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition"
+          >
+            Hire Me
+          </a>
+        </div>
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen(!open)}

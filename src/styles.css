@@ -117,3 +117,25 @@
     to { transform: translateX(-50%); }
   }
 }
+
+/* Reduced motion: user-toggled or OS preference */
+.reduce-motion .animate-float,
+.reduce-motion .animate-marquee,
+.reduce-motion .animate-fade-up,
+.reduce-motion .animate-ping,
+.reduce-motion .animate-pulse {
+  animation: none !important;
+}
+.reduce-motion [style*="animation"] {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-marquee,
+  .animate-fade-up,
+  .animate-ping,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
