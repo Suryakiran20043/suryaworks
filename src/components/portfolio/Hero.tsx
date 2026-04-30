@@ -153,7 +153,7 @@ export function Hero() {
                   alt="Gajawada Surya Kiran"
                   width={768}
                   height={768}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
               </div>
