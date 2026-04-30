@@ -165,25 +165,6 @@ export function Hero() {
 
             {/* Floating chips */}
             <div
-              className="absolute -bottom-4 -left-6 glass rounded-2xl px-4 py-3 card-shadow animate-float"
-              style={{ animationDelay: "1s" }}
-            >
-              <div className="text-xs text-muted-foreground mb-0.5">Currently</div>
-              <div className="text-sm font-semibold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                Learning DSA
-              </div>
-            </div>
-            <div
-              className="absolute -top-2 -right-4 glass rounded-2xl px-4 py-3 card-shadow animate-float"
-              style={{ animationDelay: "2.5s" }}
-            >
-              <div className="text-2xl font-bold gradient-text">Java</div>
-              <div className="text-[11px] text-muted-foreground uppercase tracking-wider">
-                Core Stack
-              </div>
-            </div>
-            <div
               className="absolute top-1/2 -left-10 hidden md:flex glass rounded-xl px-3 py-2 card-shadow items-center gap-2 animate-float"
               style={{ animationDelay: "3.5s" }}
             >
